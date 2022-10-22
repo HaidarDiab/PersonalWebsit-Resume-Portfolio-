@@ -1,0 +1,33 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+
+@{
+    ViewBag.Title = "SocialLinkIndex";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-left: 20px">
+
+    <h2>SocialLinkIndex</h2>
+
+    <div class="col-lg-6 workexperience-dev">
+
+
+        @foreach (var social in Model.SocialLinks)
+        {
+            <div>
+
+                <div>
+                    <strong>Name: </strong>@social.Name<br />
+                    <strong>Description: </strong>@social.Link<br />
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Edit ", "EditSocialLink", new { id = social.Id })
+                        @Html.ActionLink("Delete", "Delete", new { id = social.Id, actionName = "SocilaLinks" })
+
+                    }
+                </div>
+            </div><br /><hr />
+        }
+    </div>
+
+</div>

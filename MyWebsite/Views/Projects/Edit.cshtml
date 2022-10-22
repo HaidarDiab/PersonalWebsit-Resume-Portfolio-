@@ -1,0 +1,53 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm("Update", "Projects", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <div class="col-lg-4">
+        <div class="form-group">
+            @Html.LabelFor(m => m.Project.Name)
+            @Html.TextBoxFor(m => m.Project.Name, new { @class = "form-control" })
+        </div>
+
+          <div class="form-group">
+            @Html.LabelFor(m => m.Project.Category)
+            @Html.TextBoxFor(m => m.Project.Category, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Project.ReleaseDate)
+            @Html.TextBoxFor(m => m.Project.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Project.Link)
+            @Html.TextBoxFor(m => m.Project.Link, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Project.Description)
+            @Html.TextAreaFor(m => m.Project.Description, new { @class = "form-control" })
+        </div>
+
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Project.Id)
+        @Html.HiddenFor(m => m.Project.ApplicationUserId)
+
+        <button type="submit" class="btn btn-danger">Save</button>
+    </div>
+
+    <div class="form-group col-lg-8">
+        <img id="uploadPreview" class="img-circle" style="width: 200px; height: 200px ;" />
+        <input type="file" name="file" id="uploadImage" onchange="PreviewImage()" /><br><br>
+        <br><br>
+    </div>
+
+
+}
+

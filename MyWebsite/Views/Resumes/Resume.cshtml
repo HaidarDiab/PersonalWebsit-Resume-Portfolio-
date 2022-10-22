@@ -1,0 +1,169 @@
+@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "Resume";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*This div for page-loading wating*@
+<div class="loading" align="center">
+    <img src="~/images/loading-page.gif" alt="Loading, Please Wait..." />
+</div>
+
+<div class="container row resume-container elementToFadeInAndOut fadeOutUp">
+
+    <div class="row col-lg-12 summary-dev">
+
+        <h4><strong>Summary: </strong></h4>
+
+        <ul>
+            @foreach (var summary in Model.Summaries)
+            {
+                <li>@summary.Content</li>
+                if (User.Identity.IsAuthenticated)
+                {
+                    @Html.ActionLink("Edit ", "EditSummary", new { id = summary.Id })
+                    @Html.ActionLink("Delete", "Delete", "Resumes", new { id = summary.Id, actionName = "Summaries" }, null)
+                }
+            }
+        </ul>
+
+    </div>
+
+
+    <div class="row col-lg-12 edu_workexperience">
+
+        <div class="education row col-lg-6">
+
+            <h4><strong>Education:</strong></h4>
+
+            @foreach (var edu in Model.Educations)
+            {
+                <div class="date-dev col-lg-3">
+                    @edu.StartDate.ToString("yyyy") -
+                    @edu.EndDate.ToString("yyyy")<br /><hr class="card-title" />
+                </div>
+
+                <div class="col-lg-7 offset-lg-3">
+                    <strong>@edu.UniversityName</strong><br />
+                    @edu.Name
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Edit ", "EditEducation", new { id = edu.Id })
+                        @Html.ActionLink("Delete", "Delete", "Resumes", new { id = edu.Id, actionName = "Educations" }, null)
+
+                    }
+                </div><br />
+            }
+        </div>
+
+        <div class="workexperience-dev row col-lg-6">
+
+            <h4><strong>Work Experiences:</strong></h4>
+
+            @foreach (var work in Model.WorkExperiences)
+            {
+                <div class="date-dev col-lg-3">
+                    @work.StartDate.ToString("yyyy") - Present<br /><hr class="card-title" />
+                </div>
+
+                <div class="col-lg-8 offset-lg-3">
+                    <strong>@work.Name</strong><br />
+                    @work.Description
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Edit ", "EditWorkexperience", new { id = work.Id })
+                        @Html.ActionLink("Delete", "Delete", "Resumes", new { id = work.Id, actionName = "WorkExperiences" }, null)
+
+                    }
+                </div><br />
+            }
+        </div>
+    </div>
+
+
+    <div class="row col-lg-12 developer-softwareskills-dev">
+
+        <div class="developerskill row col-lg-6">
+
+            <h4><strong>Developer Skills:</strong></h4>
+            <ul>
+                @foreach (var devs in Model.DeveloperSkills)
+                {
+                    <li>@devs.Description</li>
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Edit ", "EditDeveloperskill", new { id = devs.Id })
+                        @Html.ActionLink("Delete", "Delete", "Resumes", new { id = devs.Id, actionName = "DeveloperSkills" }, null)
+
+                    }
+                }
+            </ul>
+        </div>
+
+        <div class="softwareskill row col-lg-6">
+
+            <h4><strong>Software Skills:</strong></h4>
+
+            <div class="container">
+
+                <ul style="column-count: 2">
+                    @foreach (var soft in Model.SoftwareSkills)
+                    {
+                        <li>
+                            @soft.Name
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                @Html.ActionLink("Edit ", "EditSoftwareskill", new { id = soft.Id })
+                                @Html.ActionLink("Delete", "Delete", "Resumes", new { id = soft.Id, actionName = "SoftwareSkills" }, null)
+                            }
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+
+
+    <div class="row col-lg-12 personal-lang-skill-dev">
+
+        <div class="personalskill row col-lg-6">
+
+            <h4><strong>Personal Skills:</strong></h4>
+
+            <ul>
+                @foreach (var pers in Model.PersonalSkills)
+                {
+                    <li>@pers.Description</li>
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Edit ", "EditPersonalskill", new { id = pers.Id })
+                        @Html.ActionLink("Delete", "Delete", "Resumes", new { id = pers.Id, actionName = "PersonalSkills" }, null)
+
+                    }
+                }
+            </ul>
+        </div>
+
+
+        <div class="language-dev row col-lg-6">
+
+            <h4><strong>Languges:</strong></h4>
+
+            <ul>
+                @foreach (var lang in Model.Languages)
+                {
+                    <li>@lang.Name</li>
+                    if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink("Edit ", "EditLanguageskill", new { id = lang.Id })
+                        @Html.ActionLink("Delete", "Delete", "Resumes", new { id = lang.Id, actionName = "Languages" }, null)
+                    }
+                }
+            </ul>
+        </div>
+
+    </div>
+
+</div>

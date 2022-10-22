@@ -1,0 +1,44 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "WorkExperienceInsert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-left: 20px">
+
+    <h2>WorkExperienceInsert</h2>
+
+    @using (Html.BeginForm("WorkExperienceInsert", "Resumes"))
+    {
+        @ViewBag.Result
+        <div>
+            <div class="form-group">
+                @Html.LabelFor(m => m.WorkExperience.Name)
+                @Html.TextBoxFor(m => m.WorkExperience.Name, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.WorkExperience.Description)
+                @Html.TextAreaFor(m => m.WorkExperience.Description, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.WorkExperience.StartDate)
+                @Html.TextBoxFor(m => m.WorkExperience.StartDate, "{0:d MMM yyyy}", new { @class = "form-control", placeholder = "eg 1 Mar 2022" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.WorkExperience.EndDate)
+                @Html.TextBoxFor(m => m.WorkExperience.EndDate, "{0:d MMM yyyy}", new { @class = "form-control", placeholder = "eg 1 Mar 2022" })
+            </div>
+            @Html.HiddenFor(m => m.WorkExperienceId)
+            @Html.HiddenFor(m => m.ApplicationUserId)
+
+            @Html.AntiForgeryToken()
+
+            <button class="btn btn-primary">Save</button>
+        </div>
+    }
+
+</div>>

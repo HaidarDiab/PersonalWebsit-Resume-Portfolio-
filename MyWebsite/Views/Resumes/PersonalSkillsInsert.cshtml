@@ -1,0 +1,30 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "PersonalSkillsInsert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-left: 20px">
+
+    <h2>PersonalSkillsInsert</h2>
+
+
+    @using (Html.BeginForm("PersonalSkillsInsert", "Resumes"))
+    {
+        <div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.PersonalSkill.Description)
+                @Html.TextAreaFor(m => m.PersonalSkill.Description, new { @class = "form-control" })
+            </div>
+
+            @Html.HiddenFor(m => m.PersonalSkillId)
+            @Html.HiddenFor(m => m.ApplicationUserId)
+
+            @Html.AntiForgeryToken()
+
+            <button class="btn btn-primary">Save</button>
+        </div>
+    }
+</div>

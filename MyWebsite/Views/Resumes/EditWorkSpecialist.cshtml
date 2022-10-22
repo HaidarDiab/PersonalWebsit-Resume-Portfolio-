@@ -1,0 +1,31 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "EditWorkSpecialist";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-left: 20px">
+
+    <h2>EditWorkSpecialist</h2>
+
+    @using (Html.BeginForm("EditWorkSpecialist", "Resumes"))
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m.WorkSpecialtis.Name)
+            @Html.TextBoxFor(m => m.WorkSpecialtis.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.WorkSpecialtis.Description)
+            @Html.TextAreaFor(m => m.WorkSpecialtis.Description, new { @class = "form-control" })
+        </div>
+
+        @Html.HiddenFor(m => m.WorkSpecialtis.Id)
+        @Html.HiddenFor(m => m.ApplicationUserId)
+        @Html.AntiForgeryToken()
+
+        <button type="submit" class="btn btn-danger">Save</button>
+    }
+
+</div>

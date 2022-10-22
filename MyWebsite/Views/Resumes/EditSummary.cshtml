@@ -1,0 +1,27 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "EditSummary";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-left: 20px">
+    <h2>EditSummary</h2>
+
+    @using (Html.BeginForm("EditSummary", "Resumes"))
+    {
+
+        <div class="form-group">
+
+            @Html.LabelFor(m => m.Summary.Content)
+            @Html.TextAreaFor(m => m.Summary.Content, new { @class = "form-control" })
+        </div>
+
+        @Html.HiddenFor(m => m.ApplicationUserId)
+        @Html.HiddenFor(m => m.Summary.Id)
+        @Html.AntiForgeryToken()
+
+        <button type="submit" class="btn btn-danger">Save</button>
+    }
+
+    </div>>

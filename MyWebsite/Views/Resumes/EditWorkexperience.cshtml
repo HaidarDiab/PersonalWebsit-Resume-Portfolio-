@@ -1,0 +1,48 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+
+@{
+    ViewBag.Title = "EditWorkexperience";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-left: 20px">
+
+    <h2>EditWorkexperience</h2>
+
+
+    @using (Html.BeginForm("EditWorkexperience", "Resumes"))
+    {
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.WorkExperience.Name)
+            @Html.TextBoxFor(m => m.WorkExperience.Name, new { @class = "form-control" })
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.WorkExperience.Description)
+            @Html.TextAreaFor(m => m.WorkExperience.Description, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.WorkExperience.StartDate)
+            @Html.TextBoxFor(m => m.WorkExperience.StartDate, "{0:d MMM yyyy}", new { @class = "form-control", placeholder = "eg 1 Apr 2022" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.WorkExperience.EndDate)
+            @Html.TextBoxFor(m => m.WorkExperience.EndDate, "{0:d MMM yyyy}", new { @class = "form-control", placeholder = "eg 1 Apr 2022" })
+        </div>
+
+
+        @Html.HiddenFor(m => m.ApplicationUserId)
+        @Html.HiddenFor(m => m.WorkExperience.Id)
+        @Html.AntiForgeryToken()
+
+        <button type="submit" class="btn btn-danger">Save</button>
+
+    }
+
+
+</div>>

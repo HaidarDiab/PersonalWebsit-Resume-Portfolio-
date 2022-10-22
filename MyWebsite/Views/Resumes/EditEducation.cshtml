@@ -1,0 +1,49 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "EditEducation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div style="margin-left: 20px">
+
+    <h2>EditEducation</h2>
+
+    @using (Html.BeginForm("EditEducation", "Resumes"))
+    {
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Education.Name)
+            @Html.TextBoxFor(m => m.Education.Name, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Education.UniversityName)
+            @Html.TextBoxFor(m => m.Education.UniversityName, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Education.SpecialistName)
+            @Html.TextBoxFor(m => m.Education.SpecialistName, new { @class = "form-control" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Education.StartDate)
+            @Html.TextBoxFor(m => m.Education.StartDate, "{0:d MMM yyyy}", new { @class = "form-control", placeholder = "eg 1 Apr 2022" })
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Education.EndDate)
+            @Html.TextBoxFor(m => m.Education.EndDate, "{0:d MMM yyyy}", new { @class = "form-control", placeholder = "eg 1 Apr 2022" })
+        </div>
+
+
+        @Html.HiddenFor(m => m.ApplicationUserId)
+        @Html.HiddenFor(m => m.Education.Id)
+        @Html.AntiForgeryToken()
+
+        <button type="submit" class="btn btn-danger">Save</button>
+
+
+    }
+
+</div>

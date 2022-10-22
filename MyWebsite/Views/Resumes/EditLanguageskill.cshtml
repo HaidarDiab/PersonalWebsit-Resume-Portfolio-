@@ -1,0 +1,29 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "EditLanguageskill";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-left: 20px">
+
+    <h2>EditLanguageskill</h2>
+
+    @using (Html.BeginForm("EditLanguageskill", "Resumes"))
+    {
+
+        <div class="form-group">
+            @Html.LabelFor(m => m.Language.Name)
+            @Html.TextBoxFor(m => m.Language.Name, new { @class = "form-control" })
+        </div>
+
+        @Html.HiddenFor(m => m.Language.Id)
+        @Html.HiddenFor(m => m.ApplicationUserId)
+        @Html.AntiForgeryToken()
+
+        <button type="submit" class="btn btn-danger">Save</button>
+
+    }
+
+
+</div>

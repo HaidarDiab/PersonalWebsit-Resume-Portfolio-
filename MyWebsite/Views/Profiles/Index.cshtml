@@ -1,0 +1,61 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Profile</h2>
+
+<div class="container col-lg-12 profile-form-dev">
+
+
+    @using (Html.BeginForm("Edit", "Profiles", new { id = Model.Profile.Id }))
+    {
+
+        <div class="row text-form" style="column-count: 2">
+
+                <div class="row col-lg-4">
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Profile.FullName)
+                        @Html.TextBoxFor(m => m.Profile.FullName, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Profile.Birthday)
+                        @Html.TextBoxFor(m => m.Profile.Birthday, "{0:d MMM yyyy}", new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Profile.Email)
+                        @Html.TextBoxFor(m => m.Profile.Email, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Profile.Phone)
+                        @Html.TextBoxFor(m => m.Profile.Phone, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Profile.Address)
+                        @Html.TextBoxFor(m => m.Profile.Address, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Profile.Website)
+                        @Html.TextBoxFor(m => m.Profile.Website, new { @class = "form-control" })
+                    </div>
+
+                </div>
+
+                <div class="photo-dev col-lg-6">
+                    <img src="~/images/@Model.Profile.ImageName" class="img-fluid"/>
+                </div>
+            </div>
+
+        @Html.AntiForgeryToken()
+
+        <button class="btn btn-info" type="submit">Edit</button>
+    }
+
+</div>

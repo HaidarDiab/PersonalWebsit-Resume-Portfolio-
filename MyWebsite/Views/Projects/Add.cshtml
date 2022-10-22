@@ -1,0 +1,76 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add Projects</h2>
+
+<div class="container col-lg-12 profile-form-dev">
+
+
+    @using (Html.BeginForm("Save", "Projects", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+    <div class="row text-form" style="column-count: 2">
+
+        <div class="row col-lg-4">
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Project.Name)
+                @Html.TextBoxFor(p => p.Project.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.Project.Name)
+                @ViewBag.Message
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Project.Category)
+                @Html.TextBoxFor(p => p.Project.Category, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.Project.Category)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Project.ReleaseDate)
+                @Html.TextBoxFor(p => p.Project.ReleaseDate, "{0:d MMM yyyy}", new { @class = "form-control", @Value = "", @placeholder = "eg 1 Mar 2022" })
+                @Html.ValidationMessageFor(p => p.Project.ReleaseDate)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Project.Link)
+                @Html.TextBoxFor(p => p.Project.Link, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.Project.Link)
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(p => p.Project.Description)
+                @Html.TextAreaFor(p => p.Project.Description, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.Project.Description)
+            </div>
+
+
+        </div>
+
+        <div class="photo-dev col-lg-6">
+            <img id="uploadPreview" class="img-fluid"/>
+            <input type="file" name="file" id="uploadImage" onchange="PreviewImage()" /><br><br>
+            <br><br>
+        </div>
+
+    </div>
+
+        @Html.HiddenFor(p => p.Project.Id)
+        @Html.HiddenFor(p => p.ProjectId)
+        @Html.HiddenFor(p => p.Project.ApplicationUserId)
+        @Html.AntiForgeryToken()
+
+        <input type="submit" value="Save" class="btn btn-danger" />
+    }
+
+    @*Enable Client side validation ... we should put it here .. To ensuser that JQueryval bundels come after JQuery definition *@
+
+    @section scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+
+    }
+
+
+</div>

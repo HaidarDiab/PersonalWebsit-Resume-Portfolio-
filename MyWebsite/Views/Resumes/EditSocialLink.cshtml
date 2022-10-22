@@ -1,0 +1,34 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "EditSocialLink";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-left: 20px">
+
+<h2>EditSocialLink</h2>
+
+@using (Html.BeginForm("EditSocialLink", "Resumes"))
+{
+
+<div class="form-group">
+    <p style="color: #ff0000"><strong>Note: </strong> The name must be lowercase in order to be convenient with bi icon class bootstrap to display the right icon </p>
+    @Html.LabelFor(m => m.SocialLink.Name)
+    @Html.TextBoxFor(m => m.SocialLink.Name, new { @class = "form-control" })
+</div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.SocialLink.Link)
+        @Html.TextBoxFor(m => m.SocialLink.Link, new { @class = "form-control" })
+    </div>
+
+
+    @Html.HiddenFor(m => m.SocialLink.Id)
+    @Html.HiddenFor(m => m.ApplicationUserId)
+    @Html.AntiForgeryToken()
+
+    <button type="submit" class="btn btn-danger">Save</button>
+
+}
+</div>

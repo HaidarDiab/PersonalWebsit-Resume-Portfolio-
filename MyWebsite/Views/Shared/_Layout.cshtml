@@ -1,0 +1,114 @@
+@model MyWebsite.ViewModels.ProfileFormViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="~/Scripts/removeBunner.js"></script>
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - @Model.Profile.FullName</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+    <!--To display Icons-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+    <!--To diaplay fonts-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Tenor+Sans&display=swap" rel="stylesheet">
+
+</head>
+<body>
+<script></script>
+    <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
+
+    <div class="navbar-inverse" id="header">
+
+        <div class="header-container">
+
+            <div class="navbar-header">
+
+
+                <div class="div-picture">
+
+                    <img src="~/images/@Model.Profile.ImageName" class="img-circle" />
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        @Html.ActionLink(Model.Profile.FullName, "Index", "Profiles", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink(Model.Profile.FullName, "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                    }
+                    <h5>Full Stack .Net Developer</h5>
+                </div>
+            </div>
+
+            <div class="social-links text-center">
+
+                @foreach (var social in Model.SocialLinks)
+                {
+
+                    <a target="_blank" href="@social.Link"><i class="bi bi-@social.Name"></i></a>
+                }
+
+            </div>
+
+            <div>
+
+                <div class="navbar-nav">
+                    <ul>
+                        <li><i class="bi bi-file-earmark-pdf-fill"></i>@Html.ActionLink("Resume", "Resume", "Resumes")</li>
+                        <li><i class="bi bi-file-earmark-ppt-fill"></i>@Html.ActionLink("Portfolio", "Index", "Projects")</li>
+                        <li><i class="bi bi-person-fill"></i>@Html.ActionLink("About", "About", "Home")</li>
+                        <li><i class="bi bi-telephone-inbound-fill"></i>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    </ul>
+
+
+                    @if (User.Identity.IsAuthenticated)
+                    {
+
+                        <div class="login-partial">
+                            @Html.Partial("_LoginPartial")
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+
+        </div>
+
+
+    <div class="footer justify-content-center">
+        <footer>
+            <p>&copy; @DateTime.Now.Year - @Model.Profile.FullName</p>
+        </footer>
+    </div>
+
+    </div>
+
+
+
+    <div class="container body-content" id="main">
+        @RenderBody()
+    </div>
+    
+<script src="~/Scripts/AdditionalJavascript/HideSideBar.js"></script>
+<script src="~/Scripts/AdditionalJavascript/typed.js"></script>
+<script src="~/Scripts/AdditionalJavascript/typed.min.js"></script>
+<script src="~/Scripts/AdditionalJavascript/WaitingUntilLoadingPage.js"></script>
+<script src="~/Scripts/PreviewSelectedImage.js"></script>
+<script src="~/Scripts/AdditionalJavascript/main.js"></script>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/javascript")
+    @RenderSection("scripts", required: false)
+
+</body>
+</html>

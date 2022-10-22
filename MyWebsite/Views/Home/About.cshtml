@@ -1,0 +1,59 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+
+@{
+    ViewBag.Title = "About";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- This div for page-loading wating-->
+<div class="loading" align="center">
+    <img src="~/images/loading-page.gif" alt="Loading, Please Wait..." />
+</div>
+
+
+
+<div class="row about-dev">
+
+    <h3><strong>About</strong></h3>
+
+    <div class="container elementToFadeInAndOut fadeOutUp">
+
+        <div class="row">
+
+            <div class="col-lg-5 d-flex align-items-stretch">
+
+                <div class="about-info">
+
+                    <ul>
+                        <li><strong class="strong">Degree: </strong>@Model.Education.Name - <strong>@Model.Education.EndDate.ToString("yyyy").</strong> </li>
+                        <li><strong class="strong">Email: </strong>@Model.Profile.Email</li>
+                        <li><strong class="strong">Whatsapp: </strong>@Model.Profile.Phone</li>
+                        <li><strong class="strong">Address: </strong>@Model.Profile.Address</li>
+                        <li><strong class="strong">Birthday: </strong>@Model.Profile.Birthday.ToString("d MMM yyyy")</li>
+                        <li><strong class="strong">Age: </strong>@(DateTime.Now.Year-Model.Profile.Birthday.Year)</li>
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-4 d-lg-flex align-items-stretch">
+
+
+                    <div class="row photo-dev">
+                        <img src="~/images/@Model.Profile.ImageName" />
+                    </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+

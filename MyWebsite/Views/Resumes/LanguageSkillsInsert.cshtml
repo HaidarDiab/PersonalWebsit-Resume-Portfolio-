@@ -1,0 +1,36 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+
+@{
+    ViewBag.Title = "LanguageSkillsInsert";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div style="margin-left: 20px">
+
+    <h2>LanguageSkillsInsert</h2>
+
+    @using (Html.BeginForm("LanguageSkillsInsert", "Resumes"))
+    {
+        <div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Language.Name)
+                @Html.TextBoxFor(m => m.Language.Name, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(m => m.Language.Level)
+                @Html.TextBoxFor(m => m.Language.Level, new { @class = "form-control" })
+            </div>
+
+
+            @Html.HiddenFor(m => m.LanguageId)
+            @Html.HiddenFor(m => m.ApplicationUserId)
+
+            @Html.AntiForgeryToken()
+
+            <button class="btn btn-primary">Save</button>
+        </div>
+    }
+</div>

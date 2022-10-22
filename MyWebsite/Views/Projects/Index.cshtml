@@ -1,0 +1,48 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*This div for page-loading wating*@
+@*<div class="loading" align="center">
+    <img src="~/images/loading-page.gif" alt="Loading, Please Wait..." />
+</div>*@
+
+
+
+<div class="portfolio container row col-lg-12">
+
+    <h3><strong>Porfolio</strong></h3>
+
+    @foreach (var project in Model.Projects)
+    {
+        <div class="row portfolio-container elementToFadeInAndOut fadeOutUp">
+
+            <div class="col-lg-4 col-md-6 portfolio-project">
+
+                <div class="portfolio-picture">
+                    <img src="~/images/@project.Image" />
+
+                    <div class="portfolio-links">
+                        <a href="~/images/@project.Image" data-gallery="portfolioGallery" class="portfolio-lightbox" title="Open-image">Open</a>
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            @Html.ActionLink("Delete", "Delete", "Projects", new { id = project.Id }, null)
+                        }
+                        <a title="Display Project details" @Html.ActionLink("Details", "Description", "Projects", new { id = project.Id }, null)></a>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="row col-lg-12" style="margin-left: 40px; margin-bottom: 20px;"><hr class="modal-content"/></div>
+
+        </div>
+
+    }
+</div>
+
+

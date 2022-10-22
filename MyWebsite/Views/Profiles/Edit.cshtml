@@ -1,0 +1,67 @@
+﻿@model MyWebsite.ViewModels.ProfileFormViewModel
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+    <h2>Edit</h2>
+
+<div class="container col-lg-12 profile-form-dev">
+
+
+    @using (Html.BeginForm("Update", "Profiles", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div class="row text-form" style="column-count: 2">
+
+            <div class="row col-lg-4">
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Profile.FullName)
+                    @Html.TextBoxFor(m => m.Profile.FullName, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Profile.Birthday)
+                    @Html.TextBoxFor(m => m.Profile.Birthday, "{0:d MMM yyyy}", new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Profile.Email)
+                    @Html.TextBoxFor(m => m.Profile.Email, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Profile.Phone)
+                    @Html.TextBoxFor(m => m.Profile.Phone, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Profile.Address)
+                    @Html.TextBoxFor(m => m.Profile.Address, new { @class = "form-control" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(m => m.Profile.Website)
+                    @Html.TextBoxFor(m => m.Profile.Website, new { @class = "form-control" })
+                </div>
+
+            </div>
+
+            <div class="photo-dev col-lg-6">
+                <img id="uploadPreview" class="img-fluid" />
+                <input type="file" name="file" id="uploadImage" onchange="PreviewImage()" /><br><br>
+                <br><br>
+            </div>
+
+        </div>
+
+        @Html.AntiForgeryToken()
+        @Html.HiddenFor(m => m.Id)
+        @Html.HiddenFor(m => m.Profile.Id)
+        @Html.HiddenFor(m => m.ApplicationUserId)
+
+
+        <button type="submit" class="btn btn-danger">Save</button>
+    }
+
+</div>
