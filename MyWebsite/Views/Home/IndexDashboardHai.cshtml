@@ -4,45 +4,45 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-    <h2>Dashboard</h2>
-
-<div class="container row col-lg-12 profile-form-dev" style=" text-decoration-style: solid">
+    
 
 
+<div class="container row profile-form-dev" style="text-decoration: none;"> 
 
     @using (Html.BeginForm())
     {
-        <div class="row text-form" style="column-count: 2">
+    <h3 class="card card-header">Dashboard</h3>
+        <div class="row text-form" style="column-count: 2;">
 
             <div class="row col-lg-4 indexdashboard-leftside">
-
-                <div class="form-group">
+               
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("My Profile", "Index", "Profiles")
                 </div>
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Create Profile", "Create", "Profiles")
                 </div>
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Summary", "SummaryInsert", "Resumes")
                 </div>
 
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Education Info", "EducationInsert", "Resumes")
                 </div>
 
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Project", "Add", "Projects")
                 </div>
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Work Experience", "WorkExperienceInsert", "Resumes")
                 </div>
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Work Specialist", "WorkSpecialistInsert", "Resumes")
                 </div>
 
@@ -51,31 +51,31 @@
 
 
             <div class="row col-lg-4 indexdashboard-rightside">
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Edit Work Specialist", "IndexWorkSpecialist", "Resumes")
                 </div>
 
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Personal Skills", "PersonalSkillsInsert", "Resumes")
                 </div>
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Software Skills", "SoftwareSkillsInsert", "Resumes")
                 </div>
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Developers Skills", "DevelopersSkillsInsert", "Resumes")
                 </div>
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Languges", "LanguageSkillsInsert", "Resumes")
                 </div>
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Add Social Links", "SocialLinkInsert", "Resumes")
                 </div>
 
-                <div class="form-group">
+                <div class="form-group card card-body shadow shadow-lg">
                     @Html.ActionLink("Edit Social Links", "SocialLinkIndex", "Resumes")
                 </div>
             </div>

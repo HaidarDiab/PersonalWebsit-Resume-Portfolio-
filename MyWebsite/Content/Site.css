@@ -702,6 +702,7 @@ textarea {
     margin-left: 10px;
     padding-bottom: 50px;
     overflow: auto;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
     .body-content .resume-container h4 {
@@ -716,20 +717,21 @@ textarea {
         width: 14px;
         height: 14px;
         border-radius: 50px;
-        left: -9px;
-        top: 8px;
+        left: -8px;
+        top: 5px;
         background: #fff;
-        border: 2px solid #1f5297;
+        border: 3px solid #1f5297;
     }
 
 
     .body-content .resume-container .summary-dev {
         position: relative;
-        padding: 10px 10px 10px 10px;
+        padding: 0px 0px 0px 10px;
         margin-top: 10px;
-        border-left: 2px solid #1f5297;
         background: #fff;
         box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+        border: 2px groove #f9d0d0;
+        border-left: 3px solid #1f5297;
     }
 
     .body-content .resume-container .summary-dev > ul li {
@@ -740,37 +742,36 @@ textarea {
 
     .body-content .resume-container .edu_workexperience {
         position: relative;
-        padding: 10px 10px 10px 10px;
+        padding: 0px 0px 0px 10px;
         margin-top: 10px;
-        border-left: 2px solid #1f5297;
         background: #fff;
         box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+        border: 2px groove #f9d0d0;
     }
 
 .resume-container .education::before {
-
     content: "";
     position: absolute;
     width: 14px;
     height: 14px;
     border-radius: 50px;
-    left: -9px;
-    top: 7px;
+    left: -8px;
+    top: 5px;
     background: #fff;
-    border: 2px solid #1f5297;
+    border: 3px solid #1f5297;
 }
 
 
 .resume-container .date-dev {
-    background-color: #e7e4e4;
+    background-color: #f8b3b3;
 }
 
 
 .resume-container .education {
     position: relative;
-    padding: 10px 0px 0px 10px;
+    padding: 0px 0px 0px 10px;
     margin-top: 10px;
-    border-left: 2px solid #1f5297;
+    border-left: 3px solid #1f5297;
     background: #fff;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
@@ -782,18 +783,18 @@ textarea {
     height: 14px;
     border-radius: 50px;
     left: -8px;
-    top: 7px;
+    top: 5px;
     background: #fff;
-    border: 2px solid #1f5297;
+    border: 3px solid #1f5297;
 }
 
 
 
 .resume-container .workexperience-dev {
-    padding: 10px 10px 10px 10px;
-    margin-top: 10px;
-    border-left: 2px solid #1f5297;
     position: relative;
+    padding: 0px 0px 0px 10px;
+    margin-top: 10px;
+    border-left: 3px solid #1f5297;
     background: #fff;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
 }
@@ -802,12 +803,14 @@ textarea {
 
 .body-content .resume-container .developer-softwareskills-dev {
     position: relative;
-    padding: 10px 10px 10px 10px;
+    padding: 0px 0px 0px 10px;
     margin-top: 10px;
-    border-left: 2px solid #1f5297;
     background: #fff;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+    border: 2px groove #f9d0d0;
 }
+
+
 
 
 .resume-container .softwareskill > ul li {
@@ -822,15 +825,15 @@ textarea {
     height: 14px;
     border-radius: 50px;
     left: -8px;
-    top: 7px;
+    top: 5px;
     background: #fff;
-    border: 2px solid #1f5297;
+    border: 3px solid #1f5297;
 }
 
 .resume-container .softwareskill {
-    padding: 10px 10px 10px 10px;
+    padding: 0px 0px 0px 10px;
     margin-top: 10px;
-    border-left: 2px solid #1f5297;
+    border-left: 3px solid #1f5297;
     position: relative;
     background: #fff;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
@@ -839,11 +842,11 @@ textarea {
 
 .body-content .resume-container .personal-lang-skill-dev {
     position: relative;
-    padding: 10px 10px 10px 10px;
+    padding: 0px 0px 0px 10px;
     margin-top: 10px;
-    border-left: 2px solid #1f5297;
     background: #fff;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
+    border: 2px groove #f9d0d0;
 }
 
 .resume-container .personalskill::before {
@@ -853,15 +856,15 @@ textarea {
     height: 14px;
     border-radius: 50px;
     left: -8px;
-    top: 7px;
+    top: 5px;
     background: #fff;
-    border: 2px solid #1f5297;
+    border: 3px solid #1f5297;
 }
 
 .resume-container .personalskill {
-    padding: 10px 10px 10px 10px;
+    padding: 0px 0px 0px 10px;
     margin-top: 10px;
-    border-left: 2px solid #1f5297;
+    border-left: 3px solid #1f5297;
     position: relative;
     background: #fff;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
@@ -875,15 +878,15 @@ textarea {
     height: 14px;
     border-radius: 50px;
     left: -8px;
-    top: 7px;
+    top: 5px;
     background: #fff;
-    border: 2px solid #1f5297;
+    border: 3px solid #1f5297;
 }
 
 .resume-container .developerskill {
-    padding: 10px 10px 10px 10px;
+    padding: 0px 0px 0px 10px;
     margin-top: 10px;
-    border-left: 2px solid #1f5297;
+    border-left: 3px solid #1f5297;
     position: relative;
     background: #fff;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
@@ -901,16 +904,15 @@ textarea {
     height: 14px;
     border-radius: 50px;
     left: -8px;
-    top: 7px;
+    top: 5px;
     background: #fff;
-    border: 2px solid #1f5297;
+    border: 3px solid #1f5297;
 }
 
 .resume-container .language-dev {
-
-    padding: 10px 10px 10px 10px;
+    padding: 0px 0px 0px 10px;
     margin-top: 10px;
-    border-left: 2px solid #1f5297;
+    border-left: 3px solid #1f5297;
     position: relative;
     background: #fff;
     box-shadow: 0 0 24px 0 rgba(0, 0, 0, 0.12);
@@ -1161,6 +1163,8 @@ textarea {
     padding-top: 20px;
     padding-bottom: 50px;
     overflow-y: scroll;
+    text-decoration: none;
+      
 }
 
     .body-content .profile-form-dev .text-form {

@@ -5,32 +5,36 @@
     Layout = "~/Views/Shared/_LayoutCreateProfile.cshtml";
 }
 
-<h2>Login.</h2>
+
 <div class="row">
-    <div class="col-md-8">
+
+    <div class="col-md-3 card"></div>
+    <div class="col-md-6 card card-body">
+        <h3 class="card card-title">Login.</h3>
+
         <section id="loginForm">
             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
             {
                 @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
+                <p>Use a local account to log in.</p>
+                <hr class="gx-md-5" />
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
                     @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
+                    <div class="col-md-6">
                         @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
                         @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
+                    <div class="col-md-offset-2">
                         <div class="checkbox">
                             @Html.CheckBoxFor(m => m.RememberMe)
                             @Html.LabelFor(m => m.RememberMe)
@@ -38,8 +42,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
+                    <div class=" col-md-6">
+                        <input type="submit" value="Log in" class="btn btn-dark" />
                     </div>
                 </div>
                 @*<p>
@@ -52,7 +56,8 @@
             }
         </section>
     </div>
-    @*<div class="col-md-4">
+    <div class="col-md-3 card"></div>
+    @*<div class="col-md-2 card card-footer">
         <section id="socialLoginForm">
             @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
