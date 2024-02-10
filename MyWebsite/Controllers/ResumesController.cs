@@ -179,8 +179,10 @@ namespace MyWebsite.Controllers
 					SpecialistName = viewModel.Education.SpecialistName,
 					UniversityName = viewModel.Education.UniversityName,
 					Description = viewModel.Education.Description,
-					StartDate = viewModel.Education.StartDate,
-					EndDate = viewModel.Education.EndDate,
+					StartDate = viewModel.Education.StartDate == null || viewModel.Education.StartDate == DateTime.MinValue
+                    ? DateTime.Now.AddYears(3) : viewModel.Education.StartDate,
+					EndDate = viewModel.Education.EndDate == null || viewModel.Education.EndDate == DateTime.MinValue
+                    ? DateTime.Now.AddYears(3) : viewModel.Education.EndDate,
 				};
 
 				_context.Educations.Add(edu);
@@ -228,10 +230,12 @@ namespace MyWebsite.Controllers
 		    educationInDb.Name = viewModel.Education.Name;
 			educationInDb.SpecialistName = viewModel.Education.SpecialistName;
 			educationInDb.UniversityName = viewModel.Education.UniversityName;
-			educationInDb.StartDate = viewModel.Education.StartDate;
-			educationInDb.EndDate = viewModel.Education.EndDate;
+			educationInDb.StartDate = viewModel.Education.StartDate == null || viewModel.Education.StartDate == DateTime.MinValue
+                    ? DateTime.Now.AddYears(6) : viewModel.Education.StartDate;
+            educationInDb.EndDate = viewModel.Education.EndDate == null || viewModel.Education.EndDate == DateTime.MinValue
+                    ? DateTime.Now.AddYears(6) : viewModel.Education.EndDate;
 
-			_context.SaveChanges();
+            _context.SaveChanges();
 
 			return RedirectToAction("Resume", "Resumes");
 		}
@@ -274,8 +278,10 @@ namespace MyWebsite.Controllers
 					ApplicationUser = applicationUser,
 					Name = viewModel.WorkExperience.Name,
 					Description = viewModel.WorkExperience.Description,
-					StartDate = viewModel.WorkExperience.StartDate,
-					EndDate = viewModel.WorkExperience.EndDate,
+					StartDate = viewModel.WorkExperience.StartDate == null || viewModel.WorkExperience.StartDate == DateTime.MinValue
+                    ? DateTime.Now.AddYears(6) : viewModel.WorkExperience.StartDate,
+					EndDate = viewModel.WorkExperience.EndDate == null || viewModel.WorkExperience.EndDate == DateTime.MinValue
+                    ? DateTime.Now.AddYears(6) : viewModel.WorkExperience.EndDate,
 				};
 
 				_context.WorkExperiences.Add(workExperience);
@@ -322,11 +328,13 @@ namespace MyWebsite.Controllers
 
 			workInDb.Name = viewModel.WorkExperience.Name;
 			workInDb.Description = viewModel.WorkExperience.Description;
-			workInDb.StartDate = viewModel.WorkExperience.StartDate;
-			workInDb.EndDate = viewModel.WorkExperience.EndDate;
+			workInDb.StartDate = viewModel.WorkExperience.StartDate == null || viewModel.WorkExperience.StartDate == DateTime.MinValue
+                    ? DateTime.Now.AddYears(6) : viewModel.WorkExperience.StartDate;
+			workInDb.EndDate = viewModel.WorkExperience.EndDate == null || viewModel.WorkExperience.EndDate == DateTime.MinValue
+                    ? DateTime.Now.AddYears(6) : viewModel.WorkExperience.EndDate;
 
 
-			_context.SaveChanges();
+            _context.SaveChanges();
 
 			return RedirectToAction("Resume", "Resumes");
 		}

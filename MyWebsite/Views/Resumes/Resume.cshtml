@@ -5,9 +5,9 @@
 }
 
 @*This div for page-loading wating*@
-@*<div class="loading" align="center">
+<div class="loading" align="center">
     <img src="~/images/loading-page.gif" alt="Loading, Please Wait..." />
-</div>*@
+</div>
 
 <div class="container row resume-container elementToFadeInAndOut fadeOutUp">
 
@@ -43,8 +43,15 @@
 
                     
                     <div class="date-dev col-md-3 card">
-                    @edu.StartDate.ToString("yyyy") -
-                    @edu.EndDate.ToString("yyyy")<br /><hr class="card-title" />
+                    @if (edu.StartDate == null || edu.StartDate >= DateTime.Now)
+                        {
+                        <p>@edu.StartDate.ToString("yyyy") - Present<br /><hr class="card-title" /></p>
+                        }
+
+                        else 
+                        {
+                        <p>@edu.StartDate.ToString("yyyy") - @edu.EndDate.ToString("yyyy")<br /><hr class="card-title" /></p>
+                        }
                     </div>
 
                     <div class="col-md-9 card">
@@ -70,7 +77,18 @@
             
                <div class="row">
                     <div class="date-dev col-md-3 card">
-                    @work.StartDate.ToString("yyyy") - Present<br /><hr class="card-title" />
+
+                         @if (work.EndDate == null || work.EndDate >= DateTime.Now)
+                        {
+                          <p>@work.StartDate.ToString("yyyy") - Present</p><br /><hr class="card-title" />
+
+                        }
+
+                        else 
+                        {
+                          <p>@work.StartDate.ToString("yyyy") - @work.EndDate.ToString("yyyy")</p><br /><hr class="card-title" />
+
+                        }
                     </div>
 
                   <div class="col-md-9 card">

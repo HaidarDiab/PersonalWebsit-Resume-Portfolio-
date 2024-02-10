@@ -27,7 +27,7 @@ namespace MyWebsite.Controllers
 			var viewModel = new ProfileFormViewModel
 			{
 				Profile = _context.Profiles.SingleOrDefault(),
-				Projects = _context.Projects.ToList(),
+				Projects = _context.Projects.OrderByDescending(p => p.ReleaseDate).ToList(),
 				SocialLinks = _context.SocilaLinks.ToList(),
 			};
 
